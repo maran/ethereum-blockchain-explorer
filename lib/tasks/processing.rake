@@ -1,6 +1,6 @@
 namespace :processing do
     task fix_types: :environment do
-      blocks = Block.where(processed: false)
+      blocks = Block.ne(processed: true)
       puts "Processing #{blocks.count} blocks"
       blocks.each do |block|
         block.gas_used = block.gas_used.to_i
