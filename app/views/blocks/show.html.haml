@@ -1,0 +1,47 @@
+.row
+  %h1 Block #{@block.number}
+  %dl.dl-horizontal
+    %dt Added at
+    %dd= @block.date
+    %dt Block hash
+    %dd= @block.block_hash
+    %dt Parent hash
+    %dd= link_to @block.parent_hash, block_path(@block.parent) if @block.parent.present?
+    %dt Uncle hash
+    %dd= @block.uncle_hash
+    %dt Etherbase
+    %dd= @block.coin_base
+    %dt Receipt hash
+    %dd= @block.receipt_hash
+    %dt Mix digest
+    %dd= @block.mix_digest
+    %dt Nonce
+    %dd= @block.nonce.bytes
+    %dt Difficulty
+    %dd= @block.difficulty
+    %dt Gas limit
+    %dd= @block.gas_limit
+    %dt Gas used
+    %dd= @block.gas_used
+    %dt Size
+    %dd= @block.storage_size
+.row
+  %h2 Transactions
+  %table.table
+    %thead
+      %tr
+        %th Hash
+        %th Sender
+        %th Receiver
+        %th Amount
+        %th Price
+        %th Gas limit
+    %tbody
+      -@block.transactions.each do |tx|
+        %tr
+          %td.small=link_to tx.tx_hash, tx
+          %td.small=tx.from
+          %td.small=tx.recipient
+          %td.small=tx.amount
+          %td.small=tx.price
+          %td.small=tx.gas_limit

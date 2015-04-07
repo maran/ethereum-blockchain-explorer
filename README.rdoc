@@ -1,0 +1,5 @@
+== README
+
+This is a proof of concept client for the Ethereum Block Chain parser to show you can have a working block explorer in a few hours.
+
+Pre alpha software, stay away.

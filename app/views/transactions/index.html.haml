@@ -1,0 +1,19 @@
+%h1 Transactions for block #{@block.number}
+%table.table
+  %thead
+    %tr
+      %th Hash
+      %th Sender
+      %th Receiver
+      %th Amount
+      %th Price
+      %th Gas limit
+  %tbody
+    -@transactions.each do |tx|
+      %tr
+        %td=tx.tx_hash
+        %td=tx.from
+        %td=tx.recipient
+        %td=tx.amount
+        %td=tx.price
+        %td=tx.gas_limit

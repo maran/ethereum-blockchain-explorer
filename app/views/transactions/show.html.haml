@@ -1,0 +1,25 @@
+.row
+  %h1 Transaction information
+  %dl.dl-horizontal
+    %dt Hash
+    %dd= @transaction.tx_hash
+    %dt From
+    %dd= @transaction.from
+    -if @transaction.recipient.present?
+      %dt To
+      %dd= @transaction.recipient
+      %dt Type
+      %dd Simple send
+    %dt Gas Price
+    %dd= @transaction.price
+    %dt Gas Limit
+    %dd= @transaction.gas_limit
+    %dt Block
+    %dd=link_to @transaction.block.block_hash, @transaction.block
+  %dl
+    %dt Data
+    %dd
+      %pre= @transaction.stringify_payload
+    %dt Data (raw)
+    %dd
+      %pre= @transaction.payload.data

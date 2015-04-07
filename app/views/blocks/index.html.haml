@@ -1,0 +1,26 @@
+.row
+  = form_for(:search, url: blocks_path, method: :get, class: "form-vertical") do |f|
+    .col-md-10
+      .form-group
+        =f.text_field :hash, placeholder: "Search hash", class: "form-control"
+    .col-md-2
+      =f.submit "Search", class: "btn btn-primary"
+.row
+  .col-md-12
+    %h1 Blocks
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Number
+          %th Hash
+          %th Time
+          %th Transactions
+      %tbody
+        %tr
+          -@blocks.each do |block|
+            %tr
+              %td=link_to block.number, block
+              %td=block.block_hash
+              %td=l Time.at(block.time)
+              %td=block.tx_amount
+      = paginate @blocks, :theme => 'twitter-bootstrap-3'
