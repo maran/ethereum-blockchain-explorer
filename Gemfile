@@ -30,7 +30,6 @@ gem "twitter-bootstrap-rails"
 gem "haml"
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
-gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -49,7 +48,6 @@ group :development, :test do
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
   gem "better_errors"
   gem "binding_of_caller"
 
