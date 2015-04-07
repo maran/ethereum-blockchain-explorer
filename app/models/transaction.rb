@@ -11,7 +11,12 @@ class Transaction
 
   belongs_to :block
 
+  def self.active_address_count
+    (Transaction.distinct(:from) + Transaction.distinct(:recipient)).uniq.count
+  end
+
   def stringify_payload
     self.payload.data.unpack("H*").first
   end
+
 end

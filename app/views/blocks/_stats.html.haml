@@ -1,0 +1,30 @@
+.row
+  .col-md-3
+    .col-md-3
+      %i.fa.fa-database.fa-4x.text-warning
+    .col-md-9
+      %dl
+        %dt Latest block
+        %dd.big-text= Block.desc(:number).limit(1).first.number
+  .col-md-3
+    .col-md-3
+      %i.fa.fa-exchange.fa-4x.text-success
+    .col-md-9
+      %dl
+        %dt Total transactions
+        %dd.big-text= Transaction.count
+  .col-md-3
+    .col-md-3
+      %i.fa.fa-users.fa-4x.text-info
+    .col-md-9
+      %dl
+        %dt Active addresses
+        %dd.big-text= Transaction.active_address_count
+  .col-md-3
+    .col-md-3
+      %i.fa.fa-car.fa-4x
+    .col-md-9
+      %dl
+        %dt Gas used
+        %dd.big-text= Block.sum(:gas_used)
+%hr
