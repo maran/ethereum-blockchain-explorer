@@ -16,6 +16,8 @@
           %td.small=link_to tx.from, address_path(tx.from)
           -if tx.recipient.present?
             %td.small=link_to tx.recipient, address_path(tx.recipient)
+          -else
+            %td
           %td.small=tx.amount
           %td.small=tx.price
           %td.small=tx.gas_limit
