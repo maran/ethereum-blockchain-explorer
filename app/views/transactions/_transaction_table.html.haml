@@ -1,0 +1,20 @@
+.row
+  %h2 Transactions
+  %table.table
+    %thead
+      %tr
+        %th Hash
+        %th Sender
+        %th Receiver
+        %th Amount
+        %th Price
+        %th Gas limit
+    %tbody
+      -transactions.each do |tx|
+        %tr
+          %td.small=link_to tx.tx_hash, tx
+          %td.small=link_to tx.from, address_path(tx.from)
+          %td.small=link_to tx.recipient, address_path(tx.recipient)
+          %td.small=tx.amount
+          %td.small=tx.price
+          %td.small=tx.gas_limit
