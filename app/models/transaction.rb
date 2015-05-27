@@ -11,6 +11,9 @@ class Transaction
 
   belongs_to :block
 
+  index({recipient: 1})
+  index({from: 1})
+
   def self.active_address_count
     (Transaction.distinct(:from) + Transaction.distinct(:recipient)).uniq.count
   end

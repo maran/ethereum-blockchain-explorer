@@ -21,6 +21,12 @@ class Block
   field :tx_amount, type: Integer
   field :processed, type: Boolean, default: false
 
+  index({processed: 1})
+  index({number: -1})
+  index({time: -1})
+  index({gas_used: 1})
+
+
   def parent
     Block.find_by(block_hash: self.parent_hash) rescue nil
   end
